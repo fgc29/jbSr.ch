@@ -17,24 +17,28 @@ ActiveRecord::Schema.define(version: 20140708195102) do
   enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.string   "co_name"
-    t.text     "co_description"
-    t.text     "co_url"
-    t.text     "co_logo"
-    t.string   "co_address"
+    t.string   "name"
+    t.text     "description"
+    t.text     "url"
+    t.text     "logo"
+    t.string   "address"
+    t.string   "twitter_url"
+    t.integer  "angel_list_id"
+    t.boolean  "investor"
+    t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "companies_users", force: true do |t|
+  create_table "companies_users", id: false, force: true do |t|
     t.integer "company_id"
     t.integer "user_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "f_name"
-    t.string   "l_name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
