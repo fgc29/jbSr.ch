@@ -1,0 +1,20 @@
+<h2><%= @company.name %></h2>
+
+  <hr>
+  <%= link_to image_tag( @company.logo) %>
+  <!-- <p><%= @company.name %></p> -->
+  <p><%= @company.angel_list_id %></p>
+  <p><%= @company.description %></p>
+  <p><%= @company.rating %></p>
+  <p><%= @company.url %></p>
+  <p><%= @company.twitter_url %></p>
+  <p><%= @company.address %></p>
+  <p><%= Time.now - @company.updated_at  %></p>
+  <hr>
+  <p>Jobs Available</p>
+  <hr>
+  <% @job.each do |role| %>
+  <p><strong><%= role["title"] %></strong></p>
+    <p style="text-indent: 15px;"><em><%= role["tags"].select {|x| x["tag_type"] == "SkillTag"}.map{|y| y["name"]}.join(", ") %></em></p>
+    <p style="text-indent: 15px;">$<%= role["salary_min"] %> to $<%= role["salary_max"] %></p>
+  <% end %>
