@@ -38,6 +38,12 @@ gem 'httparty'
 #awesome_print gem
 gem 'awesome_print'
 
+#heroku dependency
+gem 'rails_12factor', group: :production
+
+#ruby version
+ruby "2.1.2"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
