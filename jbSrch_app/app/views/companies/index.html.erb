@@ -1,8 +1,10 @@
 <h2>Company Index</h2>
 
-<%  @companies.select { |x| x["rating"] > 7}.sample(25).each do |co| %>
+<%  @companies.select { |x| x["rating"] > 7 && x["logo"] != " https://angel.co/images/shared/nopic_startup.png"}.sample(25).each do |co| %>
   <hr>
-  <%= link_to image_tag(co.logo), company_path(co[:id]) %>
-  <p><%= co.twitter_url %></p>
+  <div id="company_logo">
+    <%= link_to image_tag(co.logo), company_path(co[:id]) %>
+  </div>
+  <p><%= co.hi_concept %></p>
   <hr>
   <% end %>

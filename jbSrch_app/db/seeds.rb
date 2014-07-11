@@ -30,7 +30,7 @@ end
 
 
 
-def search(search_term)
+def search_angel_list(search_term)
 
   co_srch = HTTParty.get(URI.escape("https://api.angel.co/1/search?query=#{search_term}&tag_type=CompanyTypeTag"))
 
@@ -58,5 +58,39 @@ company_dataset.each do |company|
   company.rating = angellist_search["quality"].nil? ? 'not provided' : angellist_search["quality"]
   company.save
   sleep 5
+end
+
+def search_crunchbase(search_term)
+ search_term = search_term.split(/ /).join('-')
+    HTTParty.get(URI.escape("http://api.crunchbase.com/v/2/organization/#{search_term}?user_key=7bfa6ebfc4589235d83f2d050a58b4a3"))
+
+end
+
+# company_dataset = Company.all
+def api_call(company_dataset)
+
+# company_dataset = Company.all
+company_dataset.sort_by {|x| x["name"]}
+total = company_dataset.count
+company_dataset.each.with_index do |company, i|
+  puts "Starting #{company.name}"
+  crunchbase_search = search_crunchbase(company.name)
+
+  if crunchbase_search["data"]["response"] == false || crunchbase_search["data"]["response"] == "No rule matched"
+    puts "returned nothing #{company.name}"
+  else
+    company.description = crunchbase_search["data"]["properties"]["description"].nil? ? company.description : crunchbase_search["data"]["properties"]["description"]
+    company.email = crunchbase_search["data"]["properties"]["email_address"].nil? ? "" : crunchbase_search["data"]["properties"]["email_address"]
+    company.employee_count = crunchbase_search["data"]["properties"]["number_of_employees"].nil? ? nil : crunchbase_search["data"]["properties"]["number_of_employees"]
+    company.hi_concept = crunchbase_search["data"]["properties"]["short_description"].nil? ? '' : crunchbase_search["data"]["properties"]["short_description"]
+    company.market = crunchbase_search["data"]["relationships"]["categories"].nil? ? '' : crunchbase_search["data"]["relationships"]["categories"]["items"].map { |x| x["name"]}.join(", ")
+    company.founders = crunchbase_search["data"]["relationships"]["founders"].nil? ? '' : crunchbase_search["data"]["relationships"]["founders"]["items"].map { |x| x["name"]}.join(", ")
+
+    company.save
+    puts total - i
+    puts "finished #{company.name} and #{total - i} left to go!"
+    sleep 1.25
+  end
+end
 end
 # binding.pry
