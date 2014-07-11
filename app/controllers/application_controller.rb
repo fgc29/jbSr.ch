@@ -5,10 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   private
-  def jobs
-    @company = Company.find(params[:id])
-    @job = AngelListApi.search(@company.angel_list_id)
-  end
+
   def current_user
     User.find_by(id: session[:current_user]) if session[:current_user]
   end

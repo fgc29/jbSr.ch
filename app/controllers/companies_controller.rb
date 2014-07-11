@@ -6,8 +6,8 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    # @job = AngelListApi.search(@company.angel_list_id)
-    jobs
+    @job = AngelListApi.angel_list_search(@company.angel_list_id)
+    @news = CrunchbaseApi.crunchbase_search(@company.name)
   end
 
   private

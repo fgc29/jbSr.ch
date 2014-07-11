@@ -1,5 +1,5 @@
 <h2><%= @company.name %></h2>
-
+<%= link_to "back", companies_path %>
   <hr>
   <%= link_to image_tag( @company.logo) %>
   <!-- <p><%= @company.name %></p> -->
@@ -9,12 +9,19 @@
   <p><%= @company.url %></p>
   <p><%= @company.twitter_url %></p>
   <p><%= @company.address %></p>
-  <p><%= Time.now - @company.updated_at  %></p>
+  <p>Last Updated On: <%= @company.updated_at.strftime("%m/%d/%Y")  %></p>
+
   <hr>
   <p>Jobs Available</p>
   <hr>
   <% @job.each do |role| %>
-  <p><strong><%= role["title"] %></strong></p>
-    <p style="text-indent: 15px;"><em><%= role["tags"].select {|x| x["tag_type"] == "SkillTag"}.map{|y| y["name"]}.join(", ") %></em></p>
-    <p style="text-indent: 15px;">$<%= role["salary_min"] %> to $<%= role["salary_max"] %></p>
+  <%= link_to role["title"], @company.url %>
+  <p style="text-indent: 15px;"><em><%= role["tags"].select {|x| x["tag_type"] == "SkillTag"}.map{|y| y["name"]}.join(", ") %></em></p>
+  <p style="text-indent: 15px;">$<%= role["salary_min"] %> to $<%= role["salary_max"] %></p>
+    <% end %>
+  <hr>
+  <p>News Feeed</p>
+  <% @news["data"]["relationships"]["news"]["items"].each do |post| %>
+  <%= link_to post["title"], post["url"] %>
+  <hr>
   <% end %>
