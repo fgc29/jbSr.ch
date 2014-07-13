@@ -32,7 +32,7 @@
   <hr>
   <p>News Feeed</p>
   <% if @news["data"]["relationships"]["news"].nil? %>
-   <p>No news available</p>
+   <p><%= puts "No news available" %></p>
    <% else %>
      <%  @news["data"]["relationships"]["news"]["items"].each do |post| %>
   <%= link_to post["title"], post["url"] %>

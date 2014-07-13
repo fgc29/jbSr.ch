@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
     else
       puts "not found"
     end
+    
   end
 
   def show
