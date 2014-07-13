@@ -8,4 +8,11 @@ class Company < ActiveRecord::Base
   validates :name, :url, :address, presence: true
   validates :name, :url, uniqueness: true
 
+  # def self.search(search)
+  #   search_condition = "%" + search + "%"
+  #   find(:all, :conditions => ['name LIKE ? OR description LIKE ?',
+  #   search_condition, search_condition])
+  # end
+
+
 end

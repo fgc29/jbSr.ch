@@ -1,11 +1,9 @@
 <h2>Company Index</h2>
+<%=  form_tag companies_path, class: "form-inline", method: :get %>
+  <%= text_field_tag :query, params[:query], class: "form-control" %>
+  <%=  submit_tag "Search" %>
 
-<%= form_tag companies_path, class: "form-inline", method: :get do  %>
-<%= text_field_tag :query, params[:query], class: "form-control" %>
-<%= submit_tag "Search", class: "btn btn-primary"%>
-<%= link_to "clear", companies_path %>
-<% end %>
-
+  <%= link_to "Clear", companies_path %>
 
 
 <%  @companies.select { |x| x["rating"] > 7 && x["logo"] != " https://angel.co/images/shared/nopic_startup.png"}.sample(25).each do |co| %>

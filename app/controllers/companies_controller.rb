@@ -2,12 +2,13 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    
     if params[:query].present?
       @companies = Company.search(params[:query])
     else
       puts "not found"
     end
-    
+
   end
 
   def show
