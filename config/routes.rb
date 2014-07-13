@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :companies
+  resources :companies do
+    member do
+      post 'follow'
+    end
+    member do
+      post 'unfollow'
+    end
+  end
+
   resources :users
   # Sessions
   get '/login' => 'sessions#new'

@@ -1,0 +1,7 @@
+<h1>User Show</h1>
+
+<% @user.companies.each do |co| %>
+<%= co.name %>
+<%= @user.first_name %>
+<% end %>
+<%= current_user.id %>

@@ -61,8 +61,9 @@ company_dataset.each do |company|
 end
 
 def search_crunchbase(search_term)
- search_term = search_term.split(/ /).join('-')
-    HTTParty.get(URI.escape("http://api.crunchbase.com/v/2/organization/#{search_term}?user_key=#{ENV["CRUNCHBASE_API_KEY"]}"))
+ search_term = search_term.split(/ /).join('')
+    HTTParty.get(URI.escape("http://api.crunchbase.com/v/2/organization/#{search_term}?user_key=7bfa6ebfc4589235d83f2d050a58b4a3"))
+    # HTTParty.get(URI.escape("http://api.crunchbase.com/v/2/organization/#{search_term}?user_key=#{ENV["CRUNCHBASE_API_KEY"]}"))
 
 end
 
@@ -70,10 +71,10 @@ end
 def api_call(company_dataset)
 
 # company_dataset = Company.all
-company_dataset.sort_by {|x| x["name"]}
-total = company_dataset.count
+# company_dataset.sort_by {|x| x["name"]}
+# total = company_dataset.count
 company_dataset.each.with_index do |company, i|
-  puts "Starting #{company.name}"
+#   puts "Starting #{company.name}"
   crunchbase_search = search_crunchbase(company.name)
 
   if crunchbase_search["data"]["response"] == false || crunchbase_search["data"]["response"] == "No rule matched"

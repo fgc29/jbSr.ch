@@ -1,8 +1,18 @@
 <h2><%= @company.name %></h2>
 <%= link_to "back", companies_path %>
   <hr>
+  <p>followers <%= @company.users.count %>
+
+  </p>
   <%= link_to image_tag( @company.logo) %>
   <!-- <p><%= @company.name %></p> -->
+  <% if current_user.companies.include?(Company.find(params[:id]))  %>
+    <%= button_to "unfollow", {action: "unfollow"} %>
+  <% else %>
+    <%= button_to "follow", {action: "follow"} %>
+  <% end %>
+
+
   <p><%= @company.angel_list_id %></p>
   <p><%= @company.description %></p>
   <p><%= @company.rating %></p>
@@ -21,7 +31,11 @@
     <% end %>
   <hr>
   <p>News Feeed</p>
-  <% @news["data"]["relationships"]["news"]["items"].each do |post| %>
+  <% if @news["data"]["relationships"]["news"].nil? %>
+   <p>No news available</p>
+   <% else %>
+     <%  @news["data"]["relationships"]["news"]["items"].each do |post| %>
   <%= link_to post["title"], post["url"] %>
   <hr>
+  <% end %>
   <% end %>
