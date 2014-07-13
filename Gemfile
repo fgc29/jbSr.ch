@@ -41,6 +41,9 @@ gem 'awesome_print'
 #heroku dependency
 gem 'rails_12factor', group: :production
 
+#search gem
+gem 'searchkick'
+
 #ruby version
 ruby "2.1.2"
 

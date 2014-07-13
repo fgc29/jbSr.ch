@@ -2,6 +2,11 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    if params[:query].present?
+      @companies = Company.search(params[:query])
+    else
+      puts "not found"
+    end
   end
 
   def show
@@ -16,7 +21,7 @@ class CompaniesController < ApplicationController
   end
 
   def unfollow
-    current_user.companies.delete(params[:id]) 
+    current_user.companies.delete(params[:id])
     redirect_to(company_path)
   end
 
