@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @company = Company.find(params[:id])
+    @job = AngelListApi.angel_list_search(@company.angel_list_id)
+    @news = CrunchbaseApi.crunchbase_search(@company.name)
   end
 
   def edit

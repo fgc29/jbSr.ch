@@ -1,7 +1,14 @@
 <h1>User Show</h1>
-
+<p><%= @user.first_name %> <%= @user.last_name %></p>
 <% @user.companies.each do |co| %>
-<%= co.name %>
-<%= @user.first_name %>
+<%= link_to image_tag(co.logo), company_path(co.id) %>
 <% end %>
-<%= current_user.id %>
+<hr>
+<h3>Jobs</h3>
+<% jobs_count = [] %>
+<% @user.companies.each do |co| %>
+<% jobs_count << AngelListApi.angel_list_search(co.angel_list_id).count %>
+<% end %>
+<p><%= jobs_count.reduce(&:+) %> available</p>
+<hr>
+<h3>News</h3>

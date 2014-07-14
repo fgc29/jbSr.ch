@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       post 'unfollow'
     end
   end
+  #investor route class defined under Company
+  get '/investors' => 'investors#index'
+  get '/investor/:id' => 'investors#show', as: :investor
+  post '/investors/:id/follow' => 'investors#follow'
+  post '/investors/:id/unfollow' => 'investors#unfollow'
 
   resources :users
   # Sessions
