@@ -1,13 +1,4 @@
 <h2>Investor INDEX</h2>
-<%=  form_tag investors_path, class: "form-inline", method: :get %>
-  <%= text_field_tag :query, params[:query], class: "form-control" %>
-  <%=  submit_tag "Search" %>
 
-<%  @companies.select { |x| x["logo"] != "https://angel.co/images/shared/nopic_startup.png"}.sample(25).each do |co| %>
-  <hr>
-  <div id="company_logo">
-    <%= link_to image_tag(co.logo), investor_path(co[:id]) %>
-  </div>
-  <p><%= co.hi_concept %></p>
-  <hr>
-  <% end %>
+<%= render partial: "layouts/search" %>
+<%= render partial: '/layouts/index' %>

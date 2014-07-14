@@ -1,0 +1,21 @@
+<h2><%= @company.name %></h2>
+<%= link_to "back", :back %>
+  <hr>
+  <p>followers <%= @company.users.count %>
+
+  </p>
+  <%= link_to image_tag( @company.logo) %>
+
+  <% if current_user.companies.include?(Company.find(params[:id]))  %>
+    <%= button_to "unfollow", {action: "unfollow"} %>
+  <% else %>
+    <%= button_to "follow", {action: "follow"} %>
+  <% end %>
+
+  <p><%= @company.description %></p>
+  <p><%= @company.rating %></p>
+  <p><%= @company.url %></p>
+  <p><%= @company.twitter_url %></p>
+  <p><%= @company.address %></p>
+  <p>Last Updated On: <%= @company.updated_at.strftime("%m/%d/%Y")  %></p>
+  <hr>

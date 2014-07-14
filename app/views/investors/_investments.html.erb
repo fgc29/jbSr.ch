@@ -1,0 +1,9 @@
+<hr>
+<h3>Investments</h3>
+<% if @news["data"]["relationships"]["investments"].nil? %>
+ <p><%= puts "No investments available" %></p>
+ <% else %>
+   <%  @news["data"]["relationships"]["investments"]["items"].map {|x| x["invested_in"]["name"]}.uniq.each do |investment| %>
+<p><%= investment %>,</p>
+<% end %>
+<% end %>

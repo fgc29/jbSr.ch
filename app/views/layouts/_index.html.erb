@@ -1,0 +1,17 @@
+<% if params[:query].present? %>
+<hr>
+<div id="company_logo">
+  <%= link_to image_tag(@companies[0].logo), company_path(@companies[0][:id]) %>
+</div>
+<p><%= @companies[0].hi_concept %></p>
+<hr>
+<% else %>
+  <% @companies.select { |x| x.rating >= 7 && x["logo"] != "https://angel.co/images/shared/nopic_startup.png" }.sample(15).each do |co| %>
+    <hr>
+    <div id="company_logo">
+      <%= link_to image_tag(co.logo), company_path(co[:id]) %>
+    </div>
+    <p><%= co.hi_concept %></p>
+    <hr>
+    <% end %>
+<% end %>

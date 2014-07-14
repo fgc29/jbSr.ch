@@ -7,11 +7,17 @@ class CrunchbaseApi
 
     a = search_term.split(/ /).join('-')
     b = search_term.split(/ /).join("")
+    c = search_term.split(/ /).join('-').downcase
+    d = search_term.split(/ /).join("").downcase
 
     if self.call(a)["data"]["response"].nil?
       self.call(a)
     elsif self.call(b)["data"]["response"].nil?
       self.call(b)
+    elsif self.call(c)["data"]["response"].nil?
+      self.call(c)
+    elsif self.call(d)["data"]["response"].nil?
+      self.call(d)
     else
       "not available"
     end
