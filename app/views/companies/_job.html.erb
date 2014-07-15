@@ -1,6 +1,6 @@
 <% #jobs feed %>
-<h3>Jobs Available</h3>
 <hr>
+<h3>Jobs Available</h3>
 <% #jobs call to angel_list api %>
 <% @job.each do |role| %>
 <%= link_to role["title"], @company.url %>
