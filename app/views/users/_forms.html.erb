@@ -1,4 +1,9 @@
 <%  #forms for edit/update and new %>
+<ul>
+<% @user.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</ul>
 
 <%= form_for @user do |f| %>
   <%= f.label :username %>
@@ -17,5 +22,13 @@
   <%= f.text_field :email %>
   <br>
 
-  <%= f.submit 'Update Info' %>
-<% end %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <br>
+
+  <%= f.submit %>
+  <% end %>
