@@ -25,10 +25,10 @@
   <p>Founders: <%= @company.founders %></p>
   <p>Number of Employees: <%= @company.employee_count %></p>
   <p>Rating: <%= @company.rating %></p>
-  <p>URL: <%= @company.url %></p>
+  <p>URL: <%= link_to @company.url %></p>
   <p>Twitter: <%= @company.twitter_url %></p>
   <p>Address: <%= @company.address %></p>
-  <p>Email: <%= @company.email %></p>
+  <p>Email: <%= mail_to @company.email %></p>
   <p>Market: <%= @company.market %></p>
   <p>Last Updated On: <%= @company.updated_at.strftime("%m/%d/%Y")  %></p>
   <hr>
