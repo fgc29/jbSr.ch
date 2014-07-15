@@ -5,7 +5,9 @@
  <p><%= puts "No news available" %></p>
  <% else %>
    <%  @news["data"]["relationships"]["news"]["items"].each do |post| %>
-<%= link_to post["title"], post["url"] %>
+   <div id="news_link<s></s>">
+     <%= link_to post["title"], post["url"] %>
+   </div>
 <hr>
 <% end %>
 <% end %>
