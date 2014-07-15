@@ -13,12 +13,13 @@
       <h1 class="six columns alpha">HiR.nyc</h1>
       <nav class="ten columns omega">
         <% if current_user %>
-          Welcome back, <%= current_user.first_name %>! |
+          Welcome back, <%= link_to current_user.first_name, user_path(current_user.id) %>! |
           <%= link_to 'Log Out', logout_path %> |
         <% else %>
           <%= link_to 'Log In', login_path %> |
           <%= link_to 'Sign Up', new_user_path %> |
         <% end %>
+        <%= link_to 'Home', root_path %>
         <%= link_to 'Companies', companies_path %>
         <%= link_to 'Investors', investors_path %>
         <%= link_to 'Users', users_path %>

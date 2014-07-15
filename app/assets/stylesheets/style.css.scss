@@ -26,7 +26,7 @@ nav a  {
   padding-left: 20px;
   font-weight: bold;
   letter-spacing: -1px;
-  color: #FF6319;
+  color: #ef2b2d;
 }
 
 nav a:hover {
@@ -76,15 +76,22 @@ h3 {
 }
 
 .circle {
-  width: 40px;
-  height: 40px;
-  background-color: #FF6319;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: #ef2b2d;
+  border-radius: 100%;
   text-align: center;
-  line-height: 40px;
+  line-height: 150px;
   font-weight: bold;
   color: white;
   transition: .5s all;
+  margin: 20px 20px 0 20px;
+  float: left;
+}
+
+.circle a{
+  text-decoration: none;
+  color: white;
 }
 
 .item {

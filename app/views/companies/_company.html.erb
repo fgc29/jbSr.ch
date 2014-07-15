@@ -8,10 +8,14 @@
   <%= link_to image_tag( @company.logo) %>
 
   <% #follow and unfollow compmany/investor buttons %>
-  <% if current_user.companies.include?(Company.find(params[:id]))  %>
-    <%= button_to "unfollow", {action: "unfollow"} %>
+  <% if current_user.nil? %>
+    <% :back %>
   <% else %>
-    <%= button_to "follow", {action: "follow"} %>
+    <% if current_user.companies.include?(Company.find(params[:id]))  %>
+      <%= button_to "unfollow", {action: "unfollow"} %>
+    <% else %>
+      <%= button_to "follow", {action: "follow"} %>
+    <% end %>
   <% end %>
 
   <% #company attributes %>
