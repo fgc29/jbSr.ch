@@ -6,21 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+    4.1.1
 * System dependencies
-
+   In order for the app to work it depends on searchkick gem.  This gem add the search functionality for the app.
 * Configuration
-
+   Its preconfirgued and nothing out of the ordinary needs to be done! 
 * Database creation
-
+   In order for the app's db to be searchable a "rake db:reindex CLASS=Company" is necessary.
 * Database initialization
-
+    DB is seeded and will update automatically with every search.
 * How to run the test suite
-
+    need to run rspec to test models.
 * Services (job queues, cache servers, search engines, etc.)
-
+    To run locally, need to turn on elasticsearch via command line!
 * Deployment instructions
-
+    heroku deployment need to add elasticsearch dependency. 
 * ...
 
 
