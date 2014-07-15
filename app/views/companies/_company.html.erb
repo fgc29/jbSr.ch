@@ -1,4 +1,5 @@
-<h2><%= @company.name %></h2>
+<% #partial for both company's show page and investor's show page %>
+<h1><%= @company.name %></h1>
 <%= link_to "back", :back %>
   <hr>
   <p>followers <%= @company.users.count %>
@@ -6,16 +7,24 @@
   </p>
   <%= link_to image_tag( @company.logo) %>
 
+  <% #follow and unfollow compmany/investor buttons %>
   <% if current_user.companies.include?(Company.find(params[:id]))  %>
     <%= button_to "unfollow", {action: "unfollow"} %>
   <% else %>
     <%= button_to "follow", {action: "follow"} %>
   <% end %>
 
-  <p><%= @company.description %></p>
-  <p><%= @company.rating %></p>
-  <p><%= @company.url %></p>
-  <p><%= @company.twitter_url %></p>
-  <p><%= @company.address %></p>
+  <% #company attributes %>
+  <p>Description: <%= @company.description %></p>
+  <hr>
+  <p>Founded: <%= @company.founded %></p>
+  <p>Founders: <%= @company.founders %></p>
+  <p>Number of Employees: <%= @company.employee_count %></p>
+  <p>Rating: <%= @company.rating %></p>
+  <p>URL: <%= @company.url %></p>
+  <p>Twitter: <%= @company.twitter_url %></p>
+  <p>Address: <%= @company.address %></p>
+  <p>Email: <%= @company.email %></p>
+  <p>Market: <%= @company.market %></p>
   <p>Last Updated On: <%= @company.updated_at.strftime("%m/%d/%Y")  %></p>
   <hr>

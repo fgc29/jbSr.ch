@@ -1,0 +1,29 @@
+<% #index page for companies and investors %>
+
+<% #if block to render search result or sampple of top 15 companies %>
+<% if params[:query].present? %>
+<hr>
+
+<div id="company_logo">
+  <% #if block to have the logo linked to the proper model %>
+  <% if type == :investor %>
+      <%= link_to image_tag(@companies[0].logo), investor_path(@companies[0]) %>
+  <% else %>
+      <%= link_to image_tag(@companies[0].logo), company_path(@companies[0]) %>
+  <% end %>
+</div>
+
+<p><%= @companies[0].hi_concept %></p>
+<hr>
+<% else %>
+<% #this block renders the top 15 sample of companies %>
+  <% @companies.select { |x| x.rating >= 7 && x["logo"] != "https://angel.co/images/shared/nopic_startup.png" }.sample(15).each do |co| %>
+    <div class="company_logo">
+      <% if type == :investor %>
+          <%= link_to image_tag(co.logo), investor_path(co[:id]) %>
+      <% else %>
+          <%= link_to image_tag(co.logo), company_path(co[:id]) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

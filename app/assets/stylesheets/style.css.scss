@@ -1,0 +1,116 @@
+body {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-top: 10px solid black;
+  align-content: center;
+  padding: 0 150px 0 100px;
+}
+div.company_logo {
+width: 200px;
+height: 200px;
+float: left;
+}
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+nav {
+  text-align: right;
+  padding-top: 15px;
+}
+
+nav a  {
+  text-decoration: none;
+  padding-left: 20px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #FF6319;
+}
+
+nav a:hover {
+  color: #A7A9AC;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+.image-wrap {
+  margin-bottom: 50px;
+}
+
+.image-wrap img {
+  width: 100%;
+}
+
+.current {
+  color: rgba(0,0,0,1);
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(0,0,0,.3);
+  margin-bottom: 15px;
+}
+
+.job {
+  margin-bottom: 50px;
+  border-top: 2px solid #000;
+  padding-top: 10px;
+}
+
+.job h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.date {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(0,0,0,.4);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #FF6319;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  color: white;
+  transition: .5s all;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.circle:hover {
+  background-color: black;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+
+}
+
+/*.box {
+  width: 180px;
+  height: 100px;
+  background-color: blue;
+  display: inline-block
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  display: inline-block;
+}*/

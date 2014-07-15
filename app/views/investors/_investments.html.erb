@@ -1,5 +1,8 @@
+<% #investor investments %>
+
 <hr>
 <h3>Investments</h3>
+<% #if block calling the crunchbase Api %>
 <% if @news["data"]["relationships"]["investments"].nil? %>
  <p><%= puts "No investments available" %></p>
  <% else %>

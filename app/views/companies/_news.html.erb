@@ -1,4 +1,6 @@
-<p>News Feeed</p>
+<% #news feed for investors and companies %>
+<h3>News Feeed</h3>
+<% #if block call crunchbase api %>
 <% if @news["data"]["relationships"]["news"].nil? %>
  <p><%= puts "No news available" %></p>
  <% else %>

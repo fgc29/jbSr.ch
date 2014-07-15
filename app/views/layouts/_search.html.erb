@@ -1,5 +1,6 @@
-<%=  form_tag request.url, method: :get  do %>
-<%= text_field_tag :query, params[:query] %>
-<%=  submit_tag "Search" %>
-<%= link_to "Clear", request.referer %>
-<% end %>
+<% #search form %>
+  <%=  form_tag request.url, method: :get  do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%=  submit_tag "Search" %>
+  <%= link_to "Clear", request.referer %>
+  <% end %>

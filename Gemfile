@@ -47,6 +47,9 @@ gem 'searchkick'
 #ruby version
 ruby "2.1.2"
 
+#skeleton
+gem 'skeleton-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

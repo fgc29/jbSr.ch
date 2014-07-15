@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
-
+  #follow and unfollow used by investors and companies pages
   def follow
     current_user.companies << Company.find(params[:id]) unless current_user.companies.include?(Company.find(params[:id]))
     redirect_to :back
@@ -15,14 +15,12 @@ class ApplicationController < ActionController::Base
     redirect_to :back
   end
 
-  private
-
-  def current_user
-    User.find_by(id: session[:current_user]) if session[:current_user]
-  end
-
   def authenticate
     redirect_to login_path unless current_user
+  end
+  
+  def current_user
+    User.find_by(id: session[:current_user]) if session[:current_user]
   end
 
   def authorize
