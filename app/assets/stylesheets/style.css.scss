@@ -3,13 +3,49 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-top: 10px solid black;
   align-content: center;
-  padding: 0 150px 0 100px;
+  // padding: 0 150px 0 100px;
 }
-div.company_logo {
-width: 200px;
-height: 200px;
-float: left;
+
+// div.company_logo {
+// width: 200px;
+// height: 200px;
+// float: left;
+// }
+// div.company_logo {
+//   align-content: center;
+//   display: inline-block;
+// }
+
+.flex-container {
+  padding: 0 50px 0 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  // display: flex;
+  float: right;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
 }
+
+.flex-item {
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  margin-top: 0px;
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+
 h1 {
   font-size: 30px;
   font-weight: bold;
@@ -23,7 +59,7 @@ nav {
 
 nav a  {
   text-decoration: none;
-  padding-left: 20px;
+  padding-left: 10px;
   font-weight: bold;
   letter-spacing: -1px;
   color: #ef2b2d;
