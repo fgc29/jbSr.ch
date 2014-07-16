@@ -17,7 +17,7 @@ body {
 // }
 
 .flex-container {
-  padding: 0 50px 0 0;
+  padding: 0 0 0 0;
   margin: 0;
   list-style: none;
 
@@ -33,18 +33,25 @@ body {
 }
 
 .flex-item {
-  padding: 5px;
+  padding: 0;
   width: 200px;
   height: 200px;
   margin-top: 0px;
+  // background-color: red;
 
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
 }
 
+.flex-item image {
+  width: 75%;
+  vertical-align: center;
+
+}
+
+.flex-item a {
+  width: 200px;
+  height: 200px;
+
+}
 
 h1 {
   font-size: 30px;
