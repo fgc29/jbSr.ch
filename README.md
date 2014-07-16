@@ -15,4 +15,4 @@ USER Stories and prep
   
 ERD
 
-  https://www.lucidchart.com/documents/edit/93240609-5498-4c76-8f48-48d94282865e/0
+  https://www.lucidchart.com/documents/edit/cbb69a92-841c-4b63-ad89-645f2dd436d2/0
