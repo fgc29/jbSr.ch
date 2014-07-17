@@ -3,7 +3,7 @@ This app is focused on helping users find the path to a job or funding their dre
 Objective
 
   A user will go to the site and create an account.
-    From there account they can search companies and follow them.
+    From their account they can search companies and follow them.
       Once they follow a company they can see the jobs available, as well as news for that company.
   A user can view a company/investor profile.
     In the profile the user can see contact and many other attributes of the profiled company.
@@ -16,3 +16,6 @@ USER Stories and prep
 ERD
 
   https://www.lucidchart.com/documents/edit/cbb69a92-841c-4b63-ad89-645f2dd436d2/0
+
+App
+  http://hir-nyc.herokuapp.com/
