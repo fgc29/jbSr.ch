@@ -1,6 +1,5 @@
 <% #search form %>
-  <%=  form_tag request.url, method: :get  do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%=  submit_tag "Search" %>
-  <%= link_to "Clear", request.referer %>
+  <%= form_tag companies_path, method: :get  do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search for your favorite companies..." %>
+  <%=  submit_tag :search %>
   <% end %>

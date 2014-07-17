@@ -1,10 +1,10 @@
-<% #jobs feed %>
+ <% #jobs feed %>
 <hr>
 <h3>Jobs Available</h3>
 <% #jobs call to angel_list api %>
 <% @job.each do |role| %>
 <%= link_to role["title"], @company.url %>
-<p style="text-indent: 15px;"><em><%= role["tags"].select {|x| x["tag_type"] == "SkillTag"}.map{|y| y["name"]}.join(", ") %></em></p>
-<p style="text-indent: 15px;">$<%= role["salary_min"] %> to $<%= role["salary_max"] %></p>
+<p><%= role["tags"].select {|x| x["tag_type"] == "SkillTag"}.map{|y| y["name"]}.join( " | " )%></em></p>
+<p>$<%= role["salary_min"] %> to $<%= role["salary_max"] %></p>
   <% end %>
 <hr>

@@ -3,37 +3,38 @@
 <% #if block to render search result or sampple of top 15 companies %>
 <% if params[:query].present? %>
 <hr>
-<div class="container">
-
-  <div id="company_logo">
     <% #if block to have the logo linked to the proper model %>
     <% if type == :investor %>
-    <ul class="flex-container">
-       <li class="flex-item"><%= link_to image_tag(@companies[0].logo), investor_path(@companies[0]) %></li>
-    </ul>
+    <div id="company_logo">
+      <ul class="flex-container">
+       <li class="four columns"><%= link_to image_tag(@companies[0].logo), investor_path(@companies[0]) %></li>
+     </ul>
+    </div>
     <% else %>
-    <ul class="flex-container">
-      <li class="flex-item"><%= link_to image_tag(@companies[0].logo), company_path(@companies[0]) %></li>
-    </ul>
-    <% end %>
-  </div>
+    <div id="company_logo">
+      <ul class="flex-container">
+        <li class="five columns"><%= link_to image_tag(@companies[0].logo), company_path(@companies[0]) %></li>
+      </ul>
+      <p><%= @companies[0].hi_concept %></p>
+      <hr>
+    </div>
 
-  <p><%= @companies[0].hi_concept %></p>
-  <hr>
+    <% end %>
   <% else %>
   <% #this block renders the top 15 sample of companies %>
-    <% @companies.select { |x| x.rating >= 7 && x["logo"] != "https://angel.co/images/shared/nopic_startup.png" }.sample(15).each do |co| %>
+    <% @companies.select { |x| x.rating >= 7 && x["logo"] != "https://angel.co/images/shared/nopic_startup.png" }.sample(16).each do |co| %>
+      <% if type == :investor %>
       <div class="company_logo">
-        <% if type == :investor %>
         <ul class="flex-container">
-          <li class="flex-item"><%= link_to image_tag(co.logo), investor_path(co[:id]) %></li>
+          <li class="four columns" id="flex-item"><%= link_to image_tag(co.logo), investor_path(co[:id]) %></li>
         </ul>
-        <% else %>
-        <ul class="flex-container">
-          <li class="flex-item"><%= link_to image_tag(co.logo), company_path(co[:id]) %></li>
-        </ul>
-        <% end %>
       </div>
+        <% else %>
+      <div class="company_logo">
+        <ul class="flex-container">
+          <li class="four columns" id="flex-item"><%= link_to image_tag(co.logo), company_path(co[:id]) %></li>
+        </ul>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+<% end %>

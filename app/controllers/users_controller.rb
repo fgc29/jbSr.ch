@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authorize, only: [:edit, :update, :destroy, :add]
+  before_action :authorize, only: [:edit, :update, :destroy, :follow, :unfolow]
 
   def index
     @users = User.all
@@ -38,12 +38,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def add_company
-    @user = User.find(params[:id])
-    @user.companies << Company.find(params[:company_id])
-    redirect_to(company_path)
   end
 
   def destroy
